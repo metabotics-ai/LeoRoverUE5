@@ -4,6 +4,12 @@ if [ -z "${UE5_ROOT}" ]; then
 	exit 1
 fi
 
+#change default level, generating DefautlEngine.ini
+DEFAULT_RATE=${FIXED_FRAME_RATE:-"100.0"}
+DEFAULT_RTF=${TARGET_RTF:-"1.0"}
+sed -i -e 's/${FIXED_FRAME_RATE}/'${DEFAULT_RATE}'/g' Config/DefaultEngine.ini
+sed -i -e 's/${TARGET_RTF}/'${DEFAULT_RTF}'/g' Config/DefaultEngine.ini
+
 PROJECT_NAME="LeoRoverUE5"
 
 EDITOR_COMMAND="${UE5_ROOT}/Engine/Binaries/Linux/UnrealEditor"

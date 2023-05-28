@@ -1,13 +1,16 @@
 {
 	"FileVersion": 3,
-	"EngineAssociation": "F7F81DAB-681B-4B0B-B3AF-BBB26257A2E1",
+	"EngineAssociation": "E5ECE0DB-D57F-4904-9E03-1E7581B3F5FC",
 	"Category": "",
 	"Description": "",
 	"Modules": [
 		{
 			"Name": "LeoRoverUE5",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"RapyutaSimulationPlugins"
+			]
 		}
 	],
 	"Plugins": [
