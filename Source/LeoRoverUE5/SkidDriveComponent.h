@@ -108,7 +108,7 @@ public:
 
     //! @todo get data from physics constraints
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
-    float MaxForce = 100.f;
+    float MaxForce = 1000.f;
 
 protected:
     UPROPERTY()

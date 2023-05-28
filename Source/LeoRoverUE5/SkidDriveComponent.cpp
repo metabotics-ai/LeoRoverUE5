@@ -64,8 +64,8 @@ void USkidDriveComponent::UpdateMovement(float DeltaTime)
 {
     if (IsValid(WheelFrontLeft) && IsValid(WheelFrontRight) && IsValid(WheelRearLeft) && IsValid(WheelRearRight))
     {
-        float velL = Velocity.X + AngularVelocity.Z * WheelSeparationHalf * WheelSeparationMultiplier;
-        float velR = Velocity.X - AngularVelocity.Z * WheelSeparationHalf * WheelSeparationMultiplier;
+        float velL = Velocity.X + FMath::DegreesToRadians(AngularVelocity.Z) * (WheelSeparationHalf) * WheelSeparationMultiplier;
+        float velR = Velocity.X - FMath::DegreesToRadians(AngularVelocity.Z) * (WheelSeparationHalf) * WheelSeparationMultiplier;
 
         WheelFrontLeft->SetAngularVelocityTarget(FVector(velL / WheelPerimeter, 0, 0));
         WheelFrontRight->SetAngularVelocityTarget(FVector(velR / WheelPerimeter, 0, 0));
@@ -111,8 +111,8 @@ void USkidDriveComponent::UpdateOdom(float DeltaTime)
     // in the kinematics case, (dx,dy,dtheta) can be simplified considerably
     // but as this is not a performance bottleneck, for the moment we leave the full general formulation,
     // at least until the odom for the physics version of the agent is implemented, so that we have a reference
-    float vl = Velocity.X + AngularVelocity.Z * WheelSeparationHalf * WheelSeparationMultiplier;
-    float vr = Velocity.X - AngularVelocity.Z * WheelSeparationHalf * WheelSeparationMultiplier;
+    float vl = Velocity.X + FMath::DegreesToRadians(AngularVelocity.Z) * WheelSeparationHalf * WheelSeparationMultiplier;
+    float vr = Velocity.X - FMath::DegreesToRadians(AngularVelocity.Z) * WheelSeparationHalf * WheelSeparationMultiplier;
 
     // noise added as a component of vl, vr
     // Gazebo links this Book here: Sigwart 2011 Autonomous Mobile Robots page:337
