@@ -21,7 +21,7 @@ void USkidDriveComponent::SetWheels(
             CurWheel = NewWheel;
             CurWheel->SetAngularDriveMode(EAngularDriveMode::TwistAndSwing);
             CurWheel->SetAngularDriveParams(MaxForce, MaxForce, MaxForce);
-            CurWheel->SetAngularVelocityDriveTwistAndSwing(true, false);
+            CurWheel->SetAngularVelocityDriveTwistAndSwing(false, true);
         }
         else
         {
@@ -67,10 +67,10 @@ void USkidDriveComponent::UpdateMovement(float DeltaTime)
         float velL = Velocity.X + FMath::DegreesToRadians(AngularVelocity.Z) * (WheelSeparationHalf) * WheelSeparationMultiplier;
         float velR = Velocity.X - FMath::DegreesToRadians(AngularVelocity.Z) * (WheelSeparationHalf) * WheelSeparationMultiplier;
 
-        WheelFrontLeft->SetAngularVelocityTarget(FVector(velL / WheelPerimeter, 0, 0));
-        WheelFrontRight->SetAngularVelocityTarget(FVector(velR / WheelPerimeter, 0, 0));
-        WheelRearLeft->SetAngularVelocityTarget(FVector(velL / WheelPerimeter, 0, 0));
-        WheelRearRight->SetAngularVelocityTarget(FVector(velR / WheelPerimeter, 0, 0));
+        WheelFrontLeft->SetAngularVelocityTarget(FVector(0, -velL / WheelPerimeter, 0));
+        WheelFrontRight->SetAngularVelocityTarget(FVector(0, -velR / WheelPerimeter, 0));
+        WheelRearLeft->SetAngularVelocityTarget(FVector(0, -velL / WheelPerimeter, 0));
+        WheelRearRight->SetAngularVelocityTarget(FVector(0, -velR / WheelPerimeter, 0));
         WheelFrontLeft->SetAngularDriveParams(MaxForce, MaxForce, MaxForce);
         WheelFrontRight->SetAngularDriveParams(MaxForce, MaxForce, MaxForce);
         WheelRearLeft->SetAngularDriveParams(MaxForce, MaxForce, MaxForce);
