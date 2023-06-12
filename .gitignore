@@ -6,12 +6,13 @@
 
 Config/HoloLens/
 
-Content/StarterContent/ 
+Content/StarterContent/
 Content/__ExternalActors__/
 Content/__ExternalObjects__/
 Content/LevelPrototyping/
 Content/MSPresets/
 Content/Megascans/
+Content/MAEOakForest/
 
 Binaries/
 DerivedDataCache/
