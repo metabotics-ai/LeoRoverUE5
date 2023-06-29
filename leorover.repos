@@ -1,0 +1,9 @@
+repositories:
+  Plugins/RapyutaSimulationPlugins:
+    type: git
+    url: https://github.com/rapyuta-robotics/RapyutaSimulationPlugins.git
+    version: UE5.2
+  Plugins/rclUE:
+    type: git
+    url: https://github.com/rapyuta-robotics/rclUE.git
+    version: UE5_devel_humble
