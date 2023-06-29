@@ -1,11 +1,12 @@
 # LeoRoverUE5
 This project implements a virtual model of a LeoRover in Unreal Engine 5 and enables communication via ROS 2.
 
+![leorover_showcase](./Resources/leorover_showcase.gif)
 
 ## Prerequisite
 This project is tesed under the following conditions:
 - Ubutnu 22.04
-- Unreal Engine 5.2.0
+- Unreal Engine 5.2.x
 - ROS 2 Humble (binary install)
 
 ## Installation
@@ -32,14 +33,6 @@ You should download *'RapyutaSimulationPlugins'* and *'rclUE'* plugins for this 
 vcs import < leorover.repos
 ```
 
-To compile the rclUE plugin in UE5.2.0, you will need to cherry-pick the following three commits in this order.
-```
-cd Plugins/rclUE
-git cherry-pick e3de971f3a931a295f7440a96f7adb36ba42927d
-git cherry-pick 502176ff2ce470a94842db8e4af7cf104f177390
-git cherry-pick 1dd989596ac5cd5555e520a5b28524a1c1e4cfcc
-```
-
 ## Build & Run
 We are providing three scripts for compile and run this project. First, generate the 'Makefile' from 'uproject' file:
 ```
@@ -59,5 +52,18 @@ Finally, the following command run the Unreal Editor:
 > ./cleanup.sh
 > ```
 
-## Quick Start
-We provide the 'Showcase' level for a quick start, and when you start the project, you will see the following scene.
+## ROS Topics Published
+
+| ROS Topic            | Interface                                                                                                                           |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| `/image_raw`             | [sensor_msgs/Image](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/Image.msg)                         |
+| `/odom`  | [nav_msgs/Odometry](https://github.com/ros2/common_interfaces/blob/humble/nav_msgs/msg/Odometry.msg)                    |
+| `/clock`        | [rosgraph_msgs/Clock](https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/PointCloud2.msg)                    |
+
+
+## ROS 2 Topics Subscribed
+
+| ROS Topic           | Interface                                                                                                                         |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `/cmd_vel`        | [geometry_msgs/Twist](https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg)                  |
+
