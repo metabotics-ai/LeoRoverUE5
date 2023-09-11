@@ -8,7 +8,6 @@ public class LeoRoverUE5Target : TargetRules
 	public LeoRoverUE5Target( TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V4;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
 		ExtraModuleNames.Add("LeoRoverUE5");
 	}
